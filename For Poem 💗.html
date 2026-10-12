@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>For Poem 💗</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fraunces:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--bg1:#fff3f7;--bg2:#f3e9ff;--ink:#5a2a41;--rose:#e0426f;--blush:#ffc2d4;--lav:#cdb4f6;--card:rgba(255,255,255,.62);--bd:rgba(255,255,255,.85);--sh:0 18px 50px rgba(224,66,111,.18);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg1:#2a1426;--bg2:#1f1535;--ink:#ffe3ec;--card:rgba(255,255,255,.08);--bd:rgba(255,255,255,.16);--sh:0 18px 50px rgba(0,0,0,.4)}}
+:root[data-theme="dark"]{--bg1:#2a1426;--bg2:#1f1535;--ink:#ffe3ec;--card:rgba(255,255,255,.08);--bd:rgba(255,255,255,.16);--sh:0 18px 50px rgba(0,0,0,.4)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:Fraunces,Georgia,serif;color:var(--ink);background:linear-gradient(160deg,var(--bg1),var(--bg2));overflow-x:hidden}
+#fx{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.fl{position:absolute;bottom:-40px;animation:rise linear forwards;will-change:transform}
+@keyframes rise{to{transform:translateY(-110vh) translateX(var(--dx,20px)) rotate(var(--r,20deg));opacity:0}}
+.fall{position:absolute;top:-30px;animation:drop linear forwards}
+@keyframes drop{to{transform:translateY(110vh) translateX(var(--dx,40px)) rotate(360deg)}}
+main{position:relative;z-index:1;min-height:100vh}
+.scene{display:none;min-height:100vh;padding:28px 20px 90px;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:20px}
+.scene.on{display:flex;animation:in .9s ease both}
+@keyframes in{from{opacity:0;transform:scale(.96) translateY(14px);filter:blur(6px)}}
+h1,h2{margin:0;font-weight:600;line-height:1.2;max-width:22ch}
+h1{font-size:clamp(1.8rem,7vw,2.8rem)}h2{font-size:clamp(1.6rem,6vw,2.4rem)}
+.sub{font-size:1.1rem;opacity:.8;margin:0;max-width:30ch}
+.script{font-family:Caveat,cursive;color:var(--rose)}
+.btn{font:600 1.05rem Fraunces,serif;color:#fff;background:linear-gradient(135deg,#ff6b95,#e0426f);border:0;border-radius:999px;padding:15px 30px;cursor:pointer;box-shadow:0 0 0 0 rgba(224,66,111,.5),0 10px 26px rgba(224,66,111,.35);transition:transform .2s;animation:glow 2.4s infinite}
+.btn:hover{transform:translateY(-3px) scale(1.04)}.btn:active{transform:scale(.95)}
+.btn.alt{background:var(--card);color:var(--ink);border:1px solid var(--bd);box-shadow:var(--sh);animation:none;backdrop-filter:blur(8px)}
+@keyframes glow{50%{box-shadow:0 0 0 12px rgba(224,66,111,0),0 10px 34px rgba(224,66,111,.55)}}
+:focus-visible{outline:3px solid var(--lav);outline-offset:3px}
+.bear{width:min(220px,55vw);animation:bob 3s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-10px) rotate(-2deg)}}
+.heart{animation:beat 1.2s infinite;transform-origin:center;transform-box:fill-box}
+@keyframes beat{50%{transform:scale(1.15)}}
+/* envelope */
+.env{position:relative;width:min(300px,80vw);height:200px;cursor:pointer;border:0;background:none;padding:0;perspective:800px}
+.env .body{position:absolute;inset:0;background:linear-gradient(#ffd3e0,#ffb3cb);border-radius:10px;box-shadow:var(--sh)}
+.env .flap{position:absolute;left:0;right:0;top:0;height:110px;background:#ff9fbe;clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .8s}
+.env .seal{position:absolute;left:50%;top:84px;transform:translateX(-50%);font-size:2rem;z-index:3;transition:opacity .4s}
+.env.open .flap{transform:rotateX(180deg)}.env.open .seal{opacity:0}
+.letter{display:none;width:min(520px,100%);padding:30px 26px;border-radius:22px;background:linear-gradient(#fffdf8,#fff4ec);color:#5a2a41;box-shadow:var(--sh);text-align:left;position:relative;background-image:repeating-linear-gradient(transparent 0 33px,rgba(224,66,111,.14) 33px 34px)}
+.letter.on{display:block;animation:in .8s both}
+.letter p{font:500 1.35rem/34px Caveat,cursive;margin:0;min-height:34px;white-space:pre-wrap}
+.sig{font:700 2rem Caveat,cursive;color:var(--rose);text-align:right;margin-top:14px;opacity:0;clip-path:inset(0 100% 0 0)}
+.sig.on{opacity:1;animation:wipe 1.6s forwards}
+@keyframes wipe{to{clip-path:inset(0 0 0 0)}}
+/* bouquet */
+.stem{stroke-dasharray:200;stroke-dashoffset:200;animation:grow 1.4s forwards}
+@keyframes grow{to{stroke-dashoffset:0}}
+.bloom{transform-box:fill-box;transform-origin:center;transform:scale(0);animation:pop 1.2s cubic-bezier(.2,1.4,.4,1) forwards}
+@keyframes pop{to{transform:scale(1)}}
+.msg{font:700 clamp(1.8rem,7vw,2.6rem) Caveat,cursive;color:var(--rose);opacity:0;animation:in 1s 2.6s forwards}
+.row{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.card{background:var(--card);border:1px solid var(--bd);box-shadow:var(--sh);backdrop-filter:blur(10px);border-radius:24px;padding:22px 24px;max-width:34ch;font-size:1.2rem;display:none}
+.card.on{display:block;animation:in .7s both}
+#mus{position:fixed;right:14px;top:calc(14px + env(safe-area-inset-top,0px));z-index:5;width:44px;height:44px;border-radius:50%;border:1px solid var(--bd);background:var(--card);backdrop-filter:blur(8px);font-size:1.2rem;cursor:pointer}
+.sr{position:absolute;left:-9999px}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}#fx{display:none}}
+</style>
+</head>
+<body>
+<div id="fx" aria-hidden="true"></div>
+<button id="mus" aria-pressed="false" aria-label="Toggle music">🎵</button>
+<audio id="aud" loop preload="none"></audio>
+
+<main>
+<section class="scene on" id="s1">
+  <h1 id="t-open"></h1>
+  <p class="sub" id="t-open2"></p>
+  <svg class="bear" viewBox="0 0 200 220" aria-hidden="true">
+    <circle cx="50" cy="45" r="24" fill="#d9a07a"/><circle cx="150" cy="45" r="24" fill="#d9a07a"/>
+    <circle cx="50" cy="45" r="12" fill="#ffc2d4"/><circle cx="150" cy="45" r="12" fill="#ffc2d4"/>
+    <ellipse cx="100" cy="150" rx="55" ry="60" fill="#e6b08a"/>
+    <circle cx="100" cy="80" r="52" fill="#e6b08a"/>
+    <ellipse cx="100" cy="98" rx="22" ry="17" fill="#f7d9bd"/>
+    <circle cx="80" cy="72" r="6" fill="#4a2230"/><circle cx="120" cy="72" r="6" fill="#4a2230"/>
+    <circle cx="82" cy="70" r="2" fill="#fff"/><circle cx="122" cy="70" r="2" fill="#fff"/>
+    <ellipse cx="100" cy="90" rx="7" ry="5" fill="#4a2230"/>
+    <path d="M92 104q8 7 16 0" stroke="#4a2230" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <circle cx="64" cy="94" r="8" fill="#ff9fbe" opacity=".6"/><circle cx="136" cy="94" r="8" fill="#ff9fbe" opacity=".6"/>
+    <path class="heart" d="M100 190c-30-20-34-42-18-48 8-3 15 2 18 8 3-6 10-11 18-8 16 6 12 28-18 48z" fill="#e0426f"/>
+    <ellipse cx="60" cy="160" rx="14" ry="22" fill="#e6b08a" transform="rotate(25 60 160)"/><ellipse cx="140" cy="160" rx="14" ry="22" fill="#e6b08a" transform="rotate(-25 140 160)"/>
+  </svg>
+  <button class="btn" id="b-open"></button>
+</section>
+
+<section class="scene" id="s2">
+  <h2 id="t-sorry"></h2>
+  <button class="env" id="env" aria-label="Open the letter"><span class="body"></span><span class="flap"></span><span class="seal">💌</span></button>
+  <div class="letter" id="letter"><p id="typed" aria-live="polite"></p><div class="sig" id="sig"></div></div>
+  <button class="btn" id="b-sur" style="display:none"></button>
+</section>
+
+<section class="scene" id="s3">
+  <svg viewBox="0 0 300 300" width="min(340px,86vw)" aria-hidden="true" id="bq"></svg>
+  <div class="msg" id="t-flower"></div>
+  <button class="btn alt" id="b-next" style="display:none">Aage chalein 💗</button>
+</section>
+
+<section class="scene" id="s4">
+  <h2 id="t-final"></h2>
+  <div class="row"><button class="btn" id="b-yes"></button><button class="btn alt" id="b-no"></button></div>
+  <div class="card" id="reply" role="status"></div>
+</section>
+</main>
+
+<script>
+/* ===== EDIT EVERYTHING HERE ===== */
+const CONFIG={
+  name:"Poem",
+  openTitle:"Hey Poem, ek baat kahun? 🥺❤️",
+  openSub:"Someone has a little something to tell you...",
+  openBtn:"Open My Heart 💗",
+  sorryTitle:"I'm Really Sorry, maru bachuu poem jii 🥺💗",
+  letter:"Poem jii, mujhe pata hai ki sirf sorry bolne se sab theek nahi hota. Shayad main hamesha apni feelings sahi se express nahi kar pata, lekin tu mere liye bahut special hai. Mera kabhi bhi tujhe hurt karne ka irada nahi hota. Agar meri kisi baat se tera dil dukha hai, toh dil se sorry. Main chahta hoon ki tere chehre par hamesha smile rahe. Tu naraz hai toh main samajh sakta hoon. Bas itna chahta hoon ki ek din tu phir se dil se smile kare. I'm really sorry, Poem. ❤️🫂",
+  signature:"Sirf Tera, ❤️",
+  surpriseBtn:"Ek Chhota Sa Surprise Dekhegi? 🌹",
+  flowerMsg:"Ye phool teri smile ke naam. 🌹❤️",
+  finalTitle:"Can I See That Beautiful Smile Again? 🥹💗",
+  yesBtn:"Thoda Sa Maaf Kiya ❤️",
+  noBtn:"Abhi Naraz Hoon 🙈",
+  yesMsg:"Yayyy! Teri smile mere liye sabse special hai. ❤️🥹",
+  noMsg:"Koi baat nahi, Poem. Tu jitna time lena chahe le. Main teri feelings ki respect karta hoon. 🫂❤️",
+  musicFile:"" /* e.g. "music.mp3" - add a royalty-free file and put its URL/path here */
+};
+/* ================================= */
+const $=id=>document.getElementById(id);
+const RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const fx=$('fx');
+$('t-open').textContent=CONFIG.openTitle;$('t-open2').textContent=CONFIG.openSub;$('b-open').textContent=CONFIG.openBtn;
+$('t-sorry').textContent=CONFIG.sorryTitle;$('sig').textContent=CONFIG.signature;$('b-sur').textContent=CONFIG.surpriseBtn;
+$('t-flower').textContent=CONFIG.flowerMsg;$('t-final').textContent=CONFIG.finalTitle;$('b-yes').textContent=CONFIG.yesBtn;$('b-no').textContent=CONFIG.noBtn;
+
+function go(id){document.querySelectorAll('.scene').forEach(s=>s.classList.remove('on'));$(id).classList.add('on');scrollTo(0,0)}
+function spawn(chars,n,cls,dur){
+  if(RM)return;
+  for(let i=0;i<n;i++){const e=document.createElement('span');e.className=cls;e.textContent=chars[i%chars.length];
+    e.style.left=Math.random()*100+'vw';e.style.fontSize=(12+Math.random()*26)+'px';
+    e.style.animationDuration=(dur[0]+Math.random()*dur[1])+'s';e.style.animationDelay=(Math.random()*1.5)+'s';
+    e.style.setProperty('--dx',(Math.random()*80-40)+'px');e.style.setProperty('--r',(Math.random()*60-30)+'deg');
+    fx.appendChild(e);setTimeout(()=>e.remove(),(dur[0]+dur[1]+2)*1000)}
+}
+const hearts=(n=18)=>spawn(['💗','💖','✨','💕','🩷'],n,'fl',[6,6]);
+const petals=(n=24)=>spawn(['🌸','🌹','🌺'],n,'fall',[7,6]);
+setInterval(()=>{if(!document.hidden&&fx.childElementCount<30)hearts(2)},2500);
+hearts(8);
+
+$('b-open').onclick=()=>{hearts(30);go('s2')};
+
+let typing=false;
+$('env').onclick=function(){
+  if(typing||this.classList.contains('open'))return;
+  this.classList.add('open');typing=true;hearts(12);
+  setTimeout(()=>{this.style.display='none';$('letter').classList.add('on');type()},RM?0:900)
+};
+function type(){
+  const el=$('typed'),t=CONFIG.letter;
+  const done=()=>{$('sig').classList.add('on');setTimeout(()=>{$('b-sur').style.display='';},RM?0:1200)};
+  if(RM){el.textContent=t;return done()}
+  let i=0;const chars=[...t];
+  (function step(){el.textContent=chars.slice(0,++i).join('');
+    if(i<chars.length)setTimeout(step,36);else done()})();
+}
+
+/* bouquet */
+(function(){
+  const svg=$('bq');let h='';
+  const stems=[[150,280,150,120],[150,280,95,150],[150,280,205,150],[150,280,55,190],[150,280,245,190]];
+  stems.forEach((s,i)=>h+=`<path class="stem" style="animation-delay:${i*.2}s" d="M${s[0]} ${s[1]}Q${(s[0]+s[2])/2} ${s[3]+60} ${s[2]} ${s[3]}" stroke="#4f9a63" stroke-width="5" fill="none" stroke-linecap="round"/>`);
+  const cols=[['#e0426f','#ff6b95'],['#ff8fb1','#ffc2d4'],['#c9244f','#ef5a82'],['#ff8fb1','#ffc2d4'],['#e0426f','#ff6b95']];
+  stems.forEach((s,i)=>{const [a,b]=cols[i],r=i?22:30,x=s[2],y=s[3],d=1+i*.3;
+    h+=`<g class="bloom" style="animation-delay:${d}s"><circle cx="${x}" cy="${y}" r="${r}" fill="${a}"/>`+
+    [0,72,144,216,288].map(g=>`<ellipse cx="${x}" cy="${y-r*.55}" rx="${r*.5}" ry="${r*.62}" fill="${b}" opacity=".85" transform="rotate(${g} ${x} ${y})"/>`).join('')+
+    `<circle cx="${x}" cy="${y}" r="${r*.3}" fill="${a}"/></g>`});
+  h+=`<path d="M105 270q45 40 90 0l-12-48h-66z" fill="#ffc2d4" stroke="#fff" stroke-width="3"/><path d="M112 262q38 14 76 0" stroke="#e0426f" stroke-width="5" fill="none"/>`;
+  svg.innerHTML=h;
+})();
+$('b-sur').onclick=()=>{go('s3');petals(30);hearts(20);setTimeout(()=>{$('b-next').style.display=''},RM?0:4200)};
+$('b-next').onclick=()=>{go('s4')};
+
+/* final */
+$('b-yes').onclick=()=>{const r=$('reply');r.textContent=CONFIG.yesMsg;r.classList.remove('on');void r.offsetWidth;r.classList.add('on');hearts(50);petals(20)};
+$('b-no').onclick=()=>{const r=$('reply');r.textContent=CONFIG.noMsg;r.classList.remove('on');void r.offsetWidth;r.classList.add('on');hearts(8)};
+
+/* music: optional, never autoplays */
+const aud=$('aud'),mus=$('mus');
+mus.onclick=()=>{
+  if(!CONFIG.musicFile){mus.title='Add a file in CONFIG.musicFile';mus.textContent='🔇';setTimeout(()=>mus.textContent='🎵',1500);return}
+  if(!aud.src)aud.src=CONFIG.musicFile;
+  if(aud.paused){aud.play().then(()=>{mus.setAttribute('aria-pressed','true');mus.textContent='🎶'}).catch(()=>{})}
+  else{aud.pause();mus.setAttribute('aria-pressed','false');mus.textContent='🎵'}
+};
+</script>
+</body>
+</html>
